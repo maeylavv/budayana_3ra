@@ -52,11 +52,22 @@ export const attemptsApi = {
 
   /**
    * Get all attempts for the current user
-   * @param {string} [islandId] - Optional filter by island
+   * @param {object} params - Query parameters
    * @returns {Promise<Array>}
    */
-  list: (islandId) =>
-    apiRequest(`/attempts${islandId ? `?islandId=${islandId}` : ""}`),
+  list: (params = {}) => {
+    // Check if params is just a string (legacy support if previously called with islandId string)
+    if (typeof params === "string") {
+      params = { islandId: params }
+    }
+    const queryString = new URLSearchParams(
+      Object.entries(params).filter(
+        (entry) =>
+          entry[1] !== undefined && entry[1] !== null && entry[1] !== ""
+      )
+    ).toString()
+    return apiRequest(`/attempts${queryString ? `?${queryString}` : ""}`)
+  },
 
   /**
    * Get a specific attempt by ID
@@ -195,4 +206,15 @@ export const questionsApi = {
       method: "POST",
       body: JSON.stringify(data),
     }),
+}
+
+/**
+ * API methods for Statistics
+ */
+export const statisticsApi = {
+  /**
+   * Get user statistics
+   * @returns {Promise<{storiesCompleted: number, totalXp: number, averagePreTestScore: number, averagePostTestScore: number}>}
+   */
+  get: () => apiRequest("/statistics/"),
 }

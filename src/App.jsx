@@ -10,10 +10,13 @@ import Sign_Up from "./pages/auth/Sign_Up.jsx"
 import Log_in from "./pages/auth/Log_in.jsx"
 import Profile from "./pages/Profile.jsx"
 
+import Results from "./pages/Results.jsx"
+
 // Dynamic pages (unified architecture)
 import TestPage from "./pages/tests/TestPage.jsx"
 import GamePage from "./pages/games/GamePage.jsx"
 import StoryPage from "./pages/stories/StoryPage.jsx"
+import ProfileLayout from "./components/layout/ProfileLayout.jsx"
 
 const queryClient = new QueryClient()
 
@@ -50,7 +53,14 @@ export default function App() {
           {/* Auth */}
           <Route path='/sign-up' element={<Sign_Up />} />
           <Route path='/login' element={<Log_in />} />
-          <Route path='/profile' element={<Profile />} />
+
+          {/* Profile */}
+          <Route path='/profile'>
+            <Route element={<ProfileLayout />}>
+              <Route index element={<Profile />} />
+              <Route path='results' element={<Results />} />
+            </Route>
+          </Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
