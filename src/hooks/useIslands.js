@@ -6,14 +6,14 @@ import { islandsApi } from "../lib/api"
 
 /**
  * Hook to get details for a specific island including stories
- * @param {string} islandId - The ID or slug of the island
+ * @param {string} islandSlug - The slug of the island
  * @returns {object} TanStack Query query object
  */
-export function useIsland(islandId) {
+export function useIsland(islandSlug) {
   return useQuery({
-    queryKey: ["island", islandId],
-    queryFn: () => islandsApi.getIsland(islandId),
-    enabled: !!islandId,
+    queryKey: ["island", islandSlug],
+    queryFn: () => islandsApi.getIsland(islandSlug),
+    enabled: !!islandSlug,
     staleTime: 1000 * 60 * 30, // 30 minutes (island content is static)
   })
 }

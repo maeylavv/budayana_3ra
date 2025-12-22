@@ -51,7 +51,7 @@ function StageCard({ stage, status, index, onClick }) {
       style={{ cursor: isLocked ? "not-allowed" : "pointer" }}
     >
       <img
-        src={`/assets/budayana/islands/tahap ${index + 1}.png`}
+        src={`/assets/budayana/islands/tahap ${(index % 3) + 1}.png`}
         className='stage-bg'
         alt={stage.title}
       />
@@ -313,7 +313,7 @@ function IslandPopup({ activeIsland, onClose }) {
   const navigate = useNavigate()
   // Fetch dynamic island details including stories
   const { data: islandDetails, isLoading: isIslandLoading } = useIsland(
-    activeIsland.apiIslandId
+    activeIsland.slug
   )
 
   // Fetch attempts for this island

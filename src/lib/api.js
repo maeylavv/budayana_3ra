@@ -141,10 +141,10 @@ export const progressApi = {
 export const islandsApi = {
   /**
    * Get public island details including stories
-   * @param {string} id - Island ID or slug
+   * @param {string} slug - Island slug
    * @returns {Promise<object>}
    */
-  getIsland: (id) => apiRequest(`/islands/${id}?includeStories=true`),
+  getIsland: (slug) => apiRequest(`/islands/slug/${slug}?includeStories=true`),
 }
 
 /**
