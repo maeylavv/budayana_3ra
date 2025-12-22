@@ -51,6 +51,7 @@ export default function Sidebar() {
         <nav className='sidebar-menu'>
           <NavLink
             to='/profile'
+            end
             className={({ isActive }) =>
               "sidebar-item" + (isActive ? " active" : "")
             }
@@ -60,7 +61,7 @@ export default function Sidebar() {
           </NavLink>
 
           <NavLink
-            to='/results'
+            to='/profile/results'
             className={({ isActive }) =>
               "sidebar-item" + (isActive ? " active" : "")
             }

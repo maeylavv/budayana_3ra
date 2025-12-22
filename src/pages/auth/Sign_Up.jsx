@@ -33,38 +33,41 @@ export default function SignIn() {
 
   const registerMutation = useMutation({
     mutationFn: async (formData) => {
-      const { data, error } = await authClient.signUp.email({
-        email: formData.email,
-        password: formData.password,
-        name: formData.name,
-        username: formData.username,
-        grade: formData.grade,
-        guardianEmail: formData.guardianEmail,
-      })
+      const { data, error } = await authClient.signUp.email(
+        {
+          email: formData.email,
+          password: formData.password,
+          name: formData.name,
+          username: formData.username,
+          grade: formData.grade,
+          guardianEmail: formData.guardianEmail,
+        },
+        {
+          onSuccess: async () => {
+            try {
+              await initializeProgress.mutateAsync()
+
+              setPopupType("success")
+              setPopupMessage("Pendaftaran berhasil! Silakan masuk ya.")
+              setPopupOpen(true)
+            } catch (e) {
+              console.warn("Progress initialization failed:", e)
+            }
+          },
+          onError: () => {
+            setPopupType("error")
+            setPopupMessage(
+              error.message || "Terjadi kesalahan koneksi ke server."
+            )
+            setPopupOpen(true)
+          },
+        }
+      )
 
       if (error) {
         throw new Error(error.message || "Pendaftaran gagal, coba lagi ya.")
       }
       return data
-    },
-    onSuccess: async () => {
-      // Initialize user progress after successful signup
-      try {
-        await initializeProgress.mutateAsync()
-      } catch (e) {
-        // Log but don't fail signup if progress initialization fails
-        console.warn("Progress initialization failed:", e)
-      }
-
-      setPopupType("success")
-      setPopupMessage("Pendaftaran berhasil! Silakan masuk ya.")
-      setPopupOpen(true)
-    },
-    onError: (error) => {
-      // console.error(error)
-      setPopupType("error")
-      setPopupMessage(error.message || "Terjadi kesalahan koneksi ke server.")
-      setPopupOpen(true)
     },
   })
 
