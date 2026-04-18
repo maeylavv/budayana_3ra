@@ -14,6 +14,9 @@ import Log_in from "./pages/auth/Log_in.jsx"
 import Profile from "./pages/Profile.jsx"
 
 import Results from "./pages/Results.jsx"
+import QuizKulturPage from "./pages/QuizKulturPage.jsx"
+import QuizIslandPage from "./pages/QuizIslandPage.jsx"
+import QuizGameplayPage from "./pages/QuizGameplayPage.jsx"
 
 // Dynamic pages (unified architecture)
 import TestPage from "./pages/tests/TestPage.jsx"
@@ -42,6 +45,12 @@ export default function App() {
           <Route element={<ProtectedRoute />}>
             {/* Home */}
             <Route path='home' element={<Home />} />
+
+            {/* Quiz Kultur */}
+            <Route path='quiz' element={<QuizKulturPage />} />
+            {/* Quiz Kultur Details */}
+            <Route path='/islands/:islandSlug/quiz' element={<QuizIslandPage />} />
+            <Route path='/islands/:islandSlug/quiz/:topicId/:levelId' element={<QuizGameplayPage />} />
 
             {/* Story routes */}
             <Route path='/islands/:islandSlug/story'>

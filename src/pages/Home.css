@@ -706,7 +706,6 @@
 }
 
 .profile img {
-  padding-left: 150px;
   height: 100px;
   width: auto;
 }
@@ -1186,4 +1185,25 @@
 .resume-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.home-page .gameName {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.home-page .completedStories {
+  position: absolute;
+  left: 77%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 900px) {
+  .home-page .gameName,
+  .home-page .completedStories {
+    position: static;
+    transform: none;
+    left: auto;
+  }
 }
