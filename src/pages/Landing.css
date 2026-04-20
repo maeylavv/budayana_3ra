@@ -1,4 +1,4 @@
-body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka', sans-serif; background-color: #fdf5e6; }
+body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka One', sans-serif; background-color: #fdf5e6; }
 .page_landing { width: 100vw; position: relative; overflow-x: hidden; background-color: #fdf5e6; }
 
 /* Navbar */
@@ -26,7 +26,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
 .lnd-links button {
     background: none;
     border: none;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     color: #955C2E;
     font-size: 1.05rem;
     font-weight: 600;
@@ -38,7 +38,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     border: none;
     padding: 10px 40px;
     border-radius: 30px;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
@@ -51,15 +51,15 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     justify-content: center;
     align-items: flex-end;
     padding-top: 15% !important;
-    gap: 8%;
+    gap: 20%;
     padding: 140px 5% 0;
 }
 .lnd-hero-mascots {
-    width: 45%;
-    max-width: 550px;
+    width: 100%;
+    max-width: 700px;
     position: relative;
     z-index: 2;
-    margin-bottom: -15px; /* Stand on ground wave */
+    margin-bottom: -5%; /* Stand on ground wave */
 }
 .lnd-hero-text {
     display: flex;
@@ -69,9 +69,9 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     z-index: 2;
     padding-bottom: 80px;
 }
-.lnd-banner { width: 320px; margin-bottom: 20px; }
+.lnd-banner { width: 420px; margin-bottom: 20px; }
 .lnd-hero-sub {
-    font-family: 'ADLaM Display', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     color: #955C2E;
     font-size: 1.4rem;
     line-height: 1.4;
@@ -84,7 +84,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     border: none;
     padding: 14px 40px;
     border-radius: 40px;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     font-weight: 700;
     font-size: 1.25rem;
     cursor: pointer;
@@ -111,7 +111,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     align-items: center;
 }
 .lnd-title-brown {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     color: #955C2E;
     font-size: 3rem;
     font-weight: 700;
@@ -143,7 +143,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     gap: 20px;
 }
 .lnd-about-text-content p {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     font-size: 1.2rem;
     color: #333;
     line-height: 1.6;
@@ -165,7 +165,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     box-sizing: border-box;
 }
 .lnd-title-white {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     color: #fff;
     font-size: 2.8rem;
     font-weight: 700;
@@ -173,7 +173,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     text-align: center;
 }
 .lnd-subtitle-white {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     color: #fff;
     font-size: 1.2rem;
     text-align: center;
@@ -207,7 +207,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     margin-bottom: 12px;
 }
 .lnd-island-card span {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     font-weight: 700;
     color: #955C2E;
     font-size: 1rem;
@@ -218,7 +218,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     color: #fff;
     padding: 12px 35px;
     border-radius: 30px;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     font-weight: 700;
     font-size: 1.2rem;
     border: none;
@@ -236,7 +236,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     align-items: center;
 }
 .lnd-subtitle-brown {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     color: #955C2E;
     font-size: 1.2rem;
     text-align: center;
@@ -286,7 +286,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     align-items: center;
 }
 .lnd-kontak-sub {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     color: #fff;
     font-size: 1.1rem;
     text-align: center;
@@ -303,7 +303,7 @@ body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Fredoka',
     align-items: center;
     gap: 15px;
     color: #fff;
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Fredoka One', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
 }

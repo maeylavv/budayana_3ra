@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 /* Section Titles */
 .results-section-title {
   color: #955c2e;
-  font-family: Fredoka, sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 16px;
@@ -66,13 +66,13 @@
   line-height: 1;
   margin-bottom: 8px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 .stat-label {
   font-size: 1.1rem;
   font-weight: 600;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 /* Score History Table */
@@ -97,7 +97,7 @@
   font-weight: 600;
   font-size: 1rem;
   align-items: center;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 .history-body {
@@ -129,7 +129,7 @@
   color: #5b4631;
   font-weight: 500;
   font-size: 0.95rem;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 .history-row:last-child {

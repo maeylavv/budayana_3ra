@@ -7,7 +7,7 @@
   padding: 32px 24px;
   background-color: #fdf5e6; /* Soft yellow/beige matching design */
   box-sizing: border-box;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   padding-bottom: 150px;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .quiz-detail-title {
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 2.2rem;
   color: #8c603b;
   margin: 0;
@@ -118,7 +118,7 @@
 }
 
 .quiz-topic-info h3 {
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.4rem;
   color: #1a1a1a;
   margin: 0 0 4px 0;

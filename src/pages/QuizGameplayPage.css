@@ -7,7 +7,7 @@
   padding: 32px 24px;
   background-color: #fdf5e6;
   box-sizing: border-box;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   color: #5a5a5a;
 }
 
@@ -18,7 +18,7 @@
 
 .gameplay-level-subtitle {
   text-align: center;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-weight: 700;
   font-size: 1.3rem;
   color: #a3a3a3;
@@ -88,7 +88,7 @@
   font-weight: 900;
   color: #ef4444;
   /* red */
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 
@@ -152,7 +152,7 @@
 .quiz-action-btn {
   padding: 16px 40px;
   border-radius: 20px;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
   cursor: pointer;
@@ -342,7 +342,7 @@
 }
 
 .option-icon-label {
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: #4a4a4a;
@@ -365,7 +365,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.3rem;
   margin-right: 20px;
   flex-shrink: 0;
@@ -390,7 +390,7 @@
 .quiz-nav-btn {
   padding: 14px 28px;
   border-radius: 20px;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
@@ -446,7 +446,7 @@
 }
 
 .feedback-title {
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: #2d6a75;
@@ -461,7 +461,7 @@
   background-color: #f08543;
   color: #fff;
   border: none;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
@@ -504,7 +504,7 @@
 }
 
 .quit-title {
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: #2d6a75;
@@ -519,7 +519,7 @@
   background-color: #f08543;
   color: #fff;
   border: none;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   cursor: pointer;
@@ -533,7 +533,7 @@
 .btn-quit-link {
   background: none;
   border: none;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: #e05c2a;
@@ -575,7 +575,7 @@
 }
 
 .success-title {
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-weight: 800; /* was 700, bump to 800 */
   font-size: 2.2rem;
   color: #51423c;
@@ -614,7 +614,7 @@
 }
 .xp-box h2 {
   color: #ffa500;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-weight: 700;
   font-size: 2rem;
   margin: 0 0 5px 0;
@@ -632,7 +632,7 @@
 }
 .time-box h2 {
   color: #23a0ba;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-weight: 700;
   font-size: 2rem;
   margin: 0 0 5px 0;
@@ -657,7 +657,7 @@
   width: 100%;
   padding: 14px 20px;
   border-radius: 40px;
-  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   cursor: pointer;

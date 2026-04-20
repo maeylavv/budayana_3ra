@@ -24,8 +24,12 @@ import GamePage from "./pages/games/GamePage.jsx"
 import StoryPage from "./pages/stories/StoryPage.jsx"
 import ProfileLayout from "./components/layout/ProfileLayout.jsx"
 import MonitoringGuruDashboard from "./app/monitoring-guru/page.jsx"
+import MonitoringGuruProfilAnak from "./app/monitoring-guru/profil-anak/page.jsx"
+import MonitoringGuruProfilAnakDetail from "./app/monitoring-guru/profil-anak/[studentId]/page.jsx"
 import StudentProfile from "./app/monitoring-guru/[studentId]/page.jsx"
+import MonitoringGuruProfil from "./app/monitoring-guru/profil/page.jsx"
 import MonitoringOrtuDashboard from "./app/monitoring-ortu/page.jsx"
+import MonitoringOrtuProfil from "./app/monitoring-ortu/profil/page.jsx"
 import MonitoringLogin from "./pages/monitoring/MonitoringLogin.jsx"
 
 const queryClient = new QueryClient()
@@ -45,9 +49,14 @@ export default function App() {
           <Route path='/' element={<Landing />} />
           <Route path='/monitoring-login-guru' element={<MonitoringLogin role="guru" />} />
           <Route path='/monitoring-login-ortu' element={<MonitoringLogin role="ortu" />} />
-          <Route path='/monitoring-guru' element={<MonitoringGuruDashboard />} />
-          <Route path='/monitoring-guru/:studentId' element={<StudentProfile />} />
-          <Route path='/monitoring-ortu' element={<MonitoringOrtuDashboard />} />
+          <Route path='/monitoring-guru/profil' element={<MonitoringGuruProfil />} />
+          <Route path='/monitoring-guru/profil-anak' element={<MonitoringGuruProfilAnak />} />
+          <Route path='/monitoring-guru/profil-anak/:studentId' element={<MonitoringGuruProfilAnakDetail />} />
+          <Route path='/monitoring-guru/hasil' element={<MonitoringGuruDashboard />} />
+          <Route path='/monitoring-guru/hasil/:studentId' element={<StudentProfile />} />
+          
+          <Route path='/monitoring-ortu/profil' element={<MonitoringOrtuProfil />} />
+          <Route path='/monitoring-ortu/hasil' element={<MonitoringOrtuDashboard />} />
           {/* ========================================
               PROTECTED ROUTES - Requires authentication
               ======================================== */}

@@ -7,7 +7,7 @@
   background-color: #FEF6DF;
   border-right: 3px solid #D2CFC1;
   padding: 30px 20px;
-  font-family: Fredoka, sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   z-index: 1000;
   transition: transform 0.3s ease, width 0.3s ease;
 }
@@ -58,7 +58,7 @@
 }
 
 .sidebar-logout {
-  font-family: Fredoka, sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   color: #d6453c;
 }
 

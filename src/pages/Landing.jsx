@@ -21,9 +21,9 @@ export default function Landing() {
                     <div className="relative inline-block group">
                         <button className="lnd-masuk-btn">Masuk</button>
                         <div className="absolute right-0 mt-2 w-56 bg-white border border-[#E8D9C0] rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <button onClick={() => navigate('/login')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Siswa</button>
-                            <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Guru</button>
-                            <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Orang Tua</button>
+                            <button onClick={() => navigate('/login')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Masuk sebagai Siswa</button>
+                            <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Masuk sebagai Guru</button>
+                            <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Masuk sebagai Orang Tua</button>
                         </div>
                     </div>
                 </div>
@@ -37,15 +37,15 @@ export default function Landing() {
                     <div className="relative inline-block group">
                         <button className="lnd-daftar-btn">Daftar Akun</button>
                         <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white border border-[#E8D9C0] rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                            <button onClick={() => navigate('/sign-up')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Daftar Siswa</button>
-                            <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Daftar Guru</button>
-                            <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Daftar Orang Tua</button>
+                            <button onClick={() => navigate('/sign-up')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Daftar Siswa</button>
+                            <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Daftar Guru</button>
+                            <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Daftar Orang Tua</button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <img src="/assets/budayana/islands/rumput 2.png" alt="Ground Wave" className="lnd-ground-wave" />
+            <img src="/assets/budayana/islands/rumput pendek.png" alt="Ground Wave" className="lnd-ground-wave" />
 
             <div id="about" className="lnd-about">
                 <h1 className="lnd-title-brown">Tentang Kami</h1>
@@ -76,9 +76,9 @@ export default function Landing() {
                <div className="relative inline-block group">
                    <button className="lnd-btn-jelajah">Mulai Jelajah Sekarang! 🚀</button>
                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-64 bg-white border border-[#E8D9C0] rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                       <button onClick={() => navigate('/login')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Siswa</button>
-                       <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Guru</button>
-                       <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Orang Tua</button>
+                       <button onClick={() => navigate('/login')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Masuk sebagai Siswa</button>
+                       <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Masuk sebagai Guru</button>
+                       <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka-one text-[#955C2E] font-semibold transition-colors">Masuk sebagai Orang Tua</button>
                    </div>
                </div>
             </div>

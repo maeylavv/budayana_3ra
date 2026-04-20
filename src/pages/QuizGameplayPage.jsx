@@ -28,7 +28,7 @@ export default function QuizGameplayPage() {
   // Fallback if data is missing, guaranteeing UI protection independently from Hook bindings
   if (!quizConfig) {
     return (
-      <div style={{ padding: '40px', textAlign: 'center', fontFamily: 'Fredoka' }}>
+      <div style={{ padding: '40px', textAlign: 'center', fontFamily: 'Fredoka One' }}>
         <h2>Mohon maaf, konten kuis ini belum tersedia!</h2>
         <button className='quiz-action-btn primary' onClick={() => navigate(-1)}>Kembali</button>
       </div>

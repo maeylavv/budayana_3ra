@@ -1,144 +1,124 @@
-
-
-import { useParams, useNavigate } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
+import { useParams } from "react-router-dom";
 import MonitoringSidebar from "../../../components/MonitoringSidebar";
-import StatCard from "../../../components/StatCard";
 import ScoreTable from "../../../components/ScoreTable";
-import { getStudentById, TITLE_INFO } from "../../../lib/dummyData";
+import { STUDENTS } from "../../../lib/dummyData";
+import {
+  Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
+  BarChart, Bar, XAxis, YAxis, Tooltip, Legend
+} from 'recharts';
+import "../../../pages/Profile.css";
+import "../../../pages/Results.css";
+
+const radarData = [
+  { subject: 'Reading', A: 120, B: 110, fullMark: 150 },
+  { subject: 'Writing', A: 98, B: 130, fullMark: 150 },
+  { subject: 'Listening', A: 86, B: 130, fullMark: 150 },
+  { subject: 'Speaking', A: 99, B: 100, fullMark: 150 },
+  { subject: 'Grammar', A: 85, B: 90, fullMark: 150 },
+  { subject: 'Vocab', A: 65, B: 85, fullMark: 150 },
+];
+
+const barData = [
+  { name: '2020 Q1', Kent: 4000, Lincoln: 2400, Mersey: 2400, York: 2400 },
+  { name: '2020 Q2', Kent: 3000, Lincoln: 1398, Mersey: 2210, York: 2210 },
+  { name: '2020 Q3', Kent: 2000, Lincoln: 9800, Mersey: 2290, York: 2290 },
+  { name: '2020 Q4', Kent: 2780, Lincoln: 3908, Mersey: 2000, York: 2000 },
+];
 
 export default function StudentProfile() {
-  const params = useParams();
-  const navigate = useNavigate();
-  const student = getStudentById(params.studentId);
+  const { studentId } = useParams();
+  const student = STUDENTS.find(s => s.id === parseInt(studentId));
 
   if (!student) {
     return (
-      <div className="flex min-h-screen bg-[#FBF6EE]">
+      <div className="profile-layout">
         <MonitoringSidebar role="guru" />
-        <main className="flex-1 p-8 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="font-fredoka font-bold text-2xl text-[#955C2E] mb-4">Siswa tidak ditemukan</h1>
-            <button 
-              onClick={() => navigate("/monitoring-guru")}
-              className="px-6 py-2 bg-[#E8A030] text-white rounded-full font-fredoka hover:bg-[#d98f20] transition-colors"
-            >
-              Kembali
-            </button>
-          </div>
+        <main className="profile-main">
+          <p>Siswa tidak ditemukan.</p>
         </main>
       </div>
     );
   }
 
-  const titleInfo = TITLE_INFO[student.title];
-
   return (
-    <div className="flex min-h-screen bg-[#FBF6EE]">
+    <div className="profile-layout">
       <MonitoringSidebar role="guru" />
       
-      <main className="flex-1 p-8 overflow-y-auto">
-        <div className="max-w-5xl mx-auto">
-          
-          <button 
-            onClick={() => navigate("/monitoring-guru")}
-            className="flex items-center gap-2 text-[#955C2E] hover:text-[#7B4F2E] font-fredoka font-semibold mb-6 transition-colors"
-          >
-            <div className="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center">
-              <ChevronLeft size={20} />
+      <main className="profile-main">
+        <section className="profile-top">
+          <div className="profile-avatar-circle" style={{ fontSize: '3rem', width: '120px', height: '120px', borderColor: '#7B4F2E', backgroundColor: '#F2E5D3' }}>
+            {student.avatar}
+          </div>
+          <div className="profile-top-text" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '8px' }}>
+            <h1 className="profile-name" style={{ color: '#7B4F2E', fontSize: '2.5rem', fontWeight: '800' }}>{student.name}</h1>
+            <div className="profile-grade-badge" style={{ backgroundColor: '#f3a64c', color: 'white', fontSize: '1.2rem', padding: '6px 24px', borderRadius: '999px', fontWeight: 'bold' }}>
+              Kelas {student.class}
             </div>
-          </button>
+          </div>
+        </section>
 
-          <div className="flex items-center gap-6 mb-8 border-b border-[#E8D9C0] pb-6">
-            <div className="w-24 h-24 rounded-full bg-[#FEF6DF] border-4 border-[#E8A030] flex items-center justify-center text-5xl shadow-sm">
-              {student.avatar}
+        <section style={{ marginTop: '30px' }}>
+          <h2 className="results-section-title" style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Statistik</h2>
+          <div className="stats-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+            <div className="stat-card green" style={{ border: 'none', borderRadius: '24px' }}>
+              <div className="stat-value">4/8</div>
+              <div className="stat-label">Cerita Selesai</div>
             </div>
-            <div>
-              <h1 className="font-fredoka font-bold text-3xl text-[#7B4F2E] mb-2">{student.name}</h1>
-              <span className="px-4 py-1.5 bg-[#E8A030] text-white rounded-full font-fredoka font-semibold text-sm shadow-sm">
-                Kelas {student.class.replace('A','').replace('B','')}
-              </span>
+            <div className="stat-card purple" style={{ border: 'none', borderRadius: '24px' }}>
+              <div className="stat-value">{student.totalXP}</div>
+              <div className="stat-label">Total XP</div>
+            </div>
+            <div className="stat-card pink" style={{ border: 'none', borderRadius: '24px' }}>
+              <div className="stat-value" style={{ fontSize: '2rem' }}>🏆 {student.title}</div>
+              <div className="stat-label">Gelar Saat Ini</div>
+            </div>
+            <div className="stat-card orange" style={{ border: 'none', borderRadius: '24px' }}>
+              <div className="stat-value">{student.averageScore}%</div>
+              <div className="stat-label">Rata-rata<br/>Nilai Quiz</div>
+            </div>
+          </div>
+        </section>
+
+        <section style={{ marginTop: '30px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+          <div style={{ border: '3px solid #955C2E', borderRadius: '16px', padding: '20px', backgroundColor: 'white' }}>
+            <h3 style={{ color: '#955C2E', fontWeight: 'bold', marginBottom: '20px' }}>Analisis Level Literasi Siswa</h3>
+            <div style={{ height: '300px' }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="subject" tick={{ fontSize: 10 }} />
+                  <PolarRadiusAxis />
+                  <Radar name="Student" dataKey="A" stroke="#2196F3" fill="#2196F3" fillOpacity={0.6} />
+                  <Radar name="Average" dataKey="B" stroke="#F44336" fill="#F44336" fillOpacity={0.6} />
+                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" fill="black" fontWeight="bold">Radar Chart</text>
+                </RadarChart>
+              </ResponsiveContainer>
             </div>
           </div>
 
-          <h2 className="font-fredoka font-bold text-[#7B4F2E] text-xl mb-4">Statistik</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <StatCard 
-              value={`${student.storiesCompleted}/${student.totalStories}`} 
-              label="Cerita Selesai" 
-              bg="bg-[#4ade80]" 
-              textColor="text-[#064e3b]"
-            />
-            <StatCard 
-              value={student.totalXP} 
-              label="Total XP" 
-              bg="bg-[#c084fc]" 
-            />
-            <StatCard 
-              value={student.title} 
-              label="Gelar Saat Ini" 
-              bg="bg-[#f87171]" 
-              icon={titleInfo?.icon}
-            />
-            <StatCard 
-              value={`${student.averageScore}%`} 
-              label="Rata-rata Nilai Quiz" 
-              bg="bg-[#fb923c]" 
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-white p-6 rounded-2xl border border-[#E8D9C0] shadow-sm flex flex-col items-center justify-center min-h-[300px]">
-               <h3 className="font-fredoka font-bold text-[#7B4F2E] w-full text-left mb-4">Analisis Level Literasi Siswa</h3>
-               {/* Dummy Radar Chart placeholder */}
-               <div className="relative w-48 h-48">
-                  <div className="absolute inset-0 border-2 border-dashed border-gray-200 rounded-full"></div>
-                  <div className="absolute inset-4 border-2 border-dashed border-gray-200 rounded-full"></div>
-                  <div className="absolute inset-0 border border-gray-200"></div>
-                  <div className="absolute top-1/2 left-0 right-0 border-t border-gray-200"></div>
-                  <div className="absolute top-0 bottom-0 left-1/2 border-l border-gray-200"></div>
-                  
-                  {/* Dummy Shape */}
-                  <div className="absolute inset-0" style={{
-                    background: "rgba(244, 114, 182, 0.3)",
-                    clipPath: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
-                    transform: "scale(0.8)"
-                  }}></div>
-                  <div className="absolute inset-0" style={{
-                    background: "rgba(96, 165, 250, 0.4)",
-                    clipPath: "polygon(50% 20%, 80% 50%, 50% 100%, 20% 50%)",
-                    transform: "scale(0.6)"
-                  }}></div>
-                  <div className="absolute inset-0 flex items-center justify-center font-fredoka font-bold text-xs text-gray-500">
-                    Radar Chart
-                  </div>
-               </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-[#E8D9C0] shadow-sm flex flex-col items-center justify-center min-h-[300px]">
-               <h3 className="font-fredoka font-bold text-[#7B4F2E] w-full text-left mb-4">Minat Budaya Terbesar</h3>
-               {/* Dummy Bar Chart placeholder */}
-               <div className="w-full h-48 flex items-end justify-around gap-2 px-4 pb-6 pt-10 border-b-2 border-l-2 border-gray-200 relative">
-                  <div className="w-6 bg-yellow-400 h-[60%] rounded-t-sm"></div>
-                  <div className="w-6 bg-purple-500 h-[40%] rounded-t-sm"></div>
-                  <div className="w-6 bg-teal-400 h-[80%] rounded-t-sm"></div>
-                  <div className="w-6 bg-blue-500 h-[50%] rounded-t-sm"></div>
-                  
-                  <div className="w-6 bg-yellow-400 h-[70%] rounded-t-sm ml-4"></div>
-                  <div className="w-6 bg-purple-500 h-[85%] rounded-t-sm"></div>
-                  <div className="w-6 bg-teal-400 h-[60%] rounded-t-sm"></div>
-                  <div className="w-6 bg-blue-500 h-[40%] rounded-t-sm"></div>
-                  
-                  <div className="absolute inset-0 flex items-center justify-center font-fredoka font-bold text-xs text-gray-500 pointer-events-none">
-                    Grouped Bar Chart
-                  </div>
-               </div>
+          <div style={{ border: '3px solid #955C2E', borderRadius: '16px', padding: '20px', backgroundColor: 'white' }}>
+            <h3 style={{ color: '#955C2E', fontWeight: 'bold', marginBottom: '20px' }}>Minat Budaya Terbesar</h3>
+            <div style={{ height: '300px' }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={barData}>
+                  <XAxis dataKey="name" tick={{ fontSize: 10 }} />
+                  <YAxis tick={{ fontSize: 10 }} />
+                  <Tooltip />
+                  <Legend iconType="circle" wrapperStyle={{ fontSize: '10px' }} />
+                  <Bar dataKey="Kent" fill="#ffc658" />
+                  <Bar dataKey="Lincoln" fill="#8884d8" />
+                  <Bar dataKey="Mersey" fill="#82ca9d" />
+                  <Bar dataKey="York" fill="#8dd1e1" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
+        </section>
 
-          <ScoreTable history={student.scoreHistory} />
-
-        </div>
+        <section style={{ marginTop: '40px' }}>
+          <h2 className="results-section-title" style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Riwayat Pengerjaan</h2>
+          <ScoreTable history={student.quizHistory} />
+        </section>
       </main>
     </div>
   );

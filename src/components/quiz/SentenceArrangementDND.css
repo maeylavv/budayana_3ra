@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 /* Header row: title left, Periksa button right */
@@ -16,7 +16,7 @@
 }
 
 .sa-title {
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: #4a3a6e;
@@ -24,7 +24,7 @@
 }
 
 .sa-subtitle {
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #4a3a6e;
@@ -63,7 +63,7 @@
   color: #aba9b4;
   font-style: italic;
   font-size: 0.8rem;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   text-align: center;
   pointer-events: none;
   user-select: none;
@@ -84,7 +84,7 @@
 }
 
 .sa-chip-text {
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #3a3060;
@@ -136,7 +136,7 @@
   padding: 0 12px;
   border-radius: 14px;
   border: none;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: #3a3060;
@@ -160,7 +160,7 @@
 .sa-periksa-btn {
   padding: 10px 28px;
   border-radius: 30px;
-  font-family: 'Fredoka', 'Fredoka One', sans-serif;
+  font-family: 'Fredoka One', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
