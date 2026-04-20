@@ -20,6 +20,10 @@ import TestPage from "./pages/tests/TestPage.jsx"
 import GamePage from "./pages/games/GamePage.jsx"
 import StoryPage from "./pages/stories/StoryPage.jsx"
 import ProfileLayout from "./components/layout/ProfileLayout.jsx"
+import MonitoringGuruDashboard from "./app/monitoring-guru/page.jsx"
+import StudentProfile from "./app/monitoring-guru/[studentId]/page.jsx"
+import MonitoringOrtuDashboard from "./app/monitoring-ortu/page.jsx"
+import MonitoringLogin from "./pages/monitoring/MonitoringLogin.jsx"
 
 const queryClient = new QueryClient()
 
@@ -36,6 +40,11 @@ export default function App() {
               PUBLIC LANDING PAGE
               ======================================== */}
           <Route path='/' element={<Landing />} />
+          <Route path='/monitoring-login-guru' element={<MonitoringLogin role="guru" />} />
+          <Route path='/monitoring-login-ortu' element={<MonitoringLogin role="ortu" />} />
+          <Route path='/monitoring-guru' element={<MonitoringGuruDashboard />} />
+          <Route path='/monitoring-guru/:studentId' element={<StudentProfile />} />
+          <Route path='/monitoring-ortu' element={<MonitoringOrtuDashboard />} />
           {/* ========================================
               PROTECTED ROUTES - Requires authentication
               ======================================== */}

@@ -497,4 +497,118 @@ body {
     .contact_text_3 p {
         font-size: 1rem;
     }
+}/* =========================================
+   TAMBAHKAN DI SINI: SECTION MONITORING
+   ========================================= */
+.lnd-monitoring {
+    background-color: #fdf5e6;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lnd-title-brown {
+    font-family: 'Fredoka', sans-serif;
+    color: #955C2E;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.lnd-monitoring-subtitle {
+    font-family: 'Fredoka', sans-serif;
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.lnd-monitoring-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: center;
+}
+
+.lnd-monitoring-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.lnd-monitoring-card-muted {
+    background-color: #f8f9fa; /* Lebih muted/abu */
+    box-shadow: none;
+    border: 1px solid #e9ecef;
+}
+
+.lnd-monitoring-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.lnd-monitoring-card-title {
+    font-family: 'Fredoka', sans-serif;
+    color: #955C2E;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.lnd-monitoring-card-desc {
+    font-family: 'Fredoka', sans-serif;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.lnd-monitoring-btn {
+    background-color: #955C2E;
+    color: white;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 30px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    width: 100%;
+}
+
+.lnd-monitoring-btn:hover {
+    opacity: 0.85;
+}
+
+.lnd-monitoring-info {
+    font-family: 'Fredoka', sans-serif;
+    color: #955C2E;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: auto;
+    padding: 10px 0;
+}
+
+/* Responsive Mobile */
+@media (max-width: 900px) {
+    .lnd-monitoring-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .lnd-monitoring-card {
+        max-width: 400px;
+        width: 100%;
+    }
 }

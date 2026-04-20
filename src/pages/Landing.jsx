@@ -72,13 +72,19 @@ export default function Landing() {
                         </button>
                     </nav>
 
-                    {/* Desktop Login Button */}
-                    <button
-                        onClick={goToLogin}
-                        className="hidden md:inline-flex items-center justify-center bg-[#955C2E] text-white font-fredoka font-semibold px-8 py-2.5 rounded-full hover:bg-[#7a4b26] hover:-translate-y-0.5 shadow-md hover:shadow-lg transition-all duration-300"
-                    >
-                        Masuk
-                    </button>
+                    {/* Desktop Login Button with Dropdown */}
+                    <div className="relative group hidden md:inline-block">
+                        <button
+                            className="inline-flex items-center justify-center bg-[#955C2E] text-white font-fredoka font-semibold px-8 py-2.5 rounded-full hover:bg-[#7a4b26] hover:-translate-y-0.5 shadow-md hover:shadow-lg transition-all duration-300"
+                        >
+                            Masuk
+                        </button>
+                        <div className="absolute right-0 mt-2 w-56 bg-white border border-[#E8D9C0] rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <button onClick={() => navigate('/login')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Siswa</button>
+                            <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Guru</button>
+                            <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-left px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Masuk sebagai Orang Tua</button>
+                        </div>
+                    </div>
 
                     {/* Hamburger Icon */}
                     <button
@@ -116,13 +122,10 @@ export default function Landing() {
                                     Kontak
                                 </button>
 
-                                <div className="mt-4 pt-4 border-t border-[#955C2E]/20">
-                                    <button
-                                        onClick={goToLogin}
-                                        className="w-full py-3 px-4 bg-[#955C2E] text-white font-semibold rounded-xl hover:bg-[#7a4b26] transition-all duration-300 shadow-md text-center"
-                                    >
-                                        Masuk
-                                    </button>
+                                <div className="mt-4 pt-4 border-t border-[#955C2E]/20 flex flex-col gap-2">
+                                    <button onClick={() => navigate('/login')} className="w-full py-2 px-4 bg-[#955C2E] text-white font-semibold rounded-xl hover:bg-[#7a4b26] transition-all duration-300 shadow-sm text-center">Masuk Siswa</button>
+                                    <button onClick={() => navigate('/monitoring-login-guru')} className="w-full py-2 px-4 bg-[#955C2E] text-white font-semibold rounded-xl hover:bg-[#7a4b26] transition-all duration-300 shadow-sm text-center">Masuk Guru</button>
+                                    <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full py-2 px-4 bg-[#955C2E] text-white font-semibold rounded-xl hover:bg-[#7a4b26] transition-all duration-300 shadow-sm text-center">Masuk Orang Tua</button>
                                 </div>
                             </nav>
                         </div>
@@ -148,7 +151,14 @@ export default function Landing() {
                     <div className="hero_text">
                         <img src="./assets/budayana/islands/Game Name.png" alt="Budayana" />
                         <h1 className="sub_title">Platform Literasi <br></br>Budaya untuk Siswa</h1>
-                        <button className="btn_login" onClick={goToSignIn}>Daftar Akun</button>
+                        <div className="relative inline-block group">
+                            <button className="btn_login">Daftar Akun</button>
+                            <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 bg-white border border-[#E8D9C0] rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <button onClick={() => navigate('/sign-up')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Daftar Siswa</button>
+                                <button onClick={() => navigate('/monitoring-login-guru')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Daftar Guru</button>
+                                <button onClick={() => navigate('/monitoring-login-ortu')} className="w-full text-center px-4 py-2 hover:bg-[#FDF5E6] font-fredoka text-[#955C2E] font-semibold transition-colors">Daftar Orang Tua</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
