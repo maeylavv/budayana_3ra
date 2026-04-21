@@ -5,7 +5,7 @@ import './QuizIslandPage.css';
 
 // Static Data definitions
 const TOPICS = [
-  { id: 'rumah', title: 'Rumah Adat & Pakaian', icon: '🏠', totalXp: 300, color: '#ffb3c6' },
+  { id: 'rumah', title: 'Rumah Adat', icon: '🏠', totalXp: 300, color: '#ffb3c6' },
   { id: 'makanan', title: 'Makanan Tradisional', icon: '🍛', totalXp: 300, color: '#97d2ec' },
   { id: 'tarian', title: 'Tarian & Alat Musik', icon: '🎭', totalXp: 300, color: '#a7e4c0' }
 ];
@@ -23,8 +23,8 @@ export default function QuizIslandPage() {
     if (saved) {
       try {
         return JSON.parse(saved);
-      } catch (e) {
-        console.error('Failed to parse saved progress');
+      } catch (err) {
+        console.error('Failed to parse saved progress', err);
       }
     }
     return {
@@ -43,17 +43,19 @@ export default function QuizIslandPage() {
     const completedTopic = searchParams.get('completedTopic');
     const completedLevel = parseInt(searchParams.get('completedLevel'), 10);
     if (completedTopic && completedLevel) {
-      setProgress(prev => {
-        const topicProgress = prev[completedTopic];
-        if (!topicProgress) return prev;
-        const newProgress = { ...topicProgress, [completedLevel]: 'completed' };
-        if (completedLevel + 1 <= 3 && newProgress[completedLevel + 1] !== 'completed') {
-           newProgress[completedLevel + 1] = 'unlocked';
-        }
-        return { ...prev, [completedTopic]: newProgress };
-      });
-      // Clear out the query string to prevent looping if reloaded
-      setSearchParams({}, { replace: true });
+      setTimeout(() => {
+        setProgress(prev => {
+          const topicProgress = prev[completedTopic];
+          if (!topicProgress) return prev;
+          const newProgress = { ...topicProgress, [completedLevel]: 'completed' };
+          if (completedLevel + 1 <= 3 && newProgress[completedLevel + 1] !== 'completed') {
+             newProgress[completedLevel + 1] = 'unlocked';
+          }
+          return { ...prev, [completedTopic]: newProgress };
+        });
+        // Clear out the query string to prevent looping if reloaded
+        setSearchParams({}, { replace: true });
+      }, 0);
     }
   }, [searchParams, setSearchParams]);
 

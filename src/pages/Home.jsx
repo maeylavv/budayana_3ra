@@ -5,7 +5,6 @@ import { Check } from 'lucide-react'
 import {
   useAttempts,
   getStoryUnlockStatus,
-  getLatestStoryScore,
 } from "../hooks/useAttempts"
 import { useMyProgress, useIslandCycles } from "../hooks/useProgress"
 import { useIsland } from "../hooks/useIslands"
@@ -277,7 +276,7 @@ function IslandPopup({ activeIsland, onClose }) {
   )
 
   // Fetch cycle count for this island
-  const { data: cyclesData } = useIslandCycles(activeIsland.apiIslandId)
+  const { data: _cyclesData } = useIslandCycles(activeIsland.apiIslandId)
 
   const handleStageClick = (stage, status) => {
     if (status === "locked") return

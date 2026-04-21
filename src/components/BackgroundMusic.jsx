@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import { useLocation } from "react-router-dom"
 
 /**
  * Background music component with autoplay policy handling
@@ -6,18 +7,28 @@ import { useState, useRef, useEffect } from "react"
  * Strategy: Start muted, then unmute on first user interaction
  */
 export default function BackgroundMusic() {
+  const location = useLocation()
   const audioRef = useRef(null)
   const [hasInteracted, setHasInteracted] = useState(false)
 
+  const isLandingPage = !!(location.pathname === '/' || location.pathname === '')
+
   useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) return
+    const audioNode = audioRef.current;
+
+    // Only continue if we're on the landing page
+    if (!isLandingPage) {
+      if (audioNode) audioNode.pause();
+      return;
+    }
+
+    if (!audioNode) return
 
     // Set volume (0.0 - 1.0 range)
-    audio.volume = 0.3
+    audioNode.volume = 0.3
 
     // Try to play (may fail due to autoplay policy)
-    const playPromise = audio.play()
+    const playPromise = audioNode.play()
     if (playPromise !== undefined) {
       playPromise.catch(() => {
         // Autoplay was blocked - will play after user interaction
@@ -27,10 +38,11 @@ export default function BackgroundMusic() {
 
     // Handle user interaction to enable audio
     const handleInteraction = () => {
-      if (!hasInteracted) {
+      // Must double check audioNode and isLandingPage flag at interaction time
+      if (!hasInteracted && audioNode) {
         setHasInteracted(true)
-        audio.muted = false
-        audio.play().catch(() => {})
+        audioNode.muted = false
+        audioNode.play().catch(() => {})
       }
     }
 
@@ -43,8 +55,15 @@ export default function BackgroundMusic() {
       document.removeEventListener("click", handleInteraction)
       document.removeEventListener("keydown", handleInteraction)
       document.removeEventListener("touchstart", handleInteraction)
+      if (audioNode) {
+        audioNode.pause();
+      }
     }
-  }, [hasInteracted])
+  }, [hasInteracted, isLandingPage])
+
+  if (!isLandingPage) {
+    return null
+  }
 
   return (
     <audio

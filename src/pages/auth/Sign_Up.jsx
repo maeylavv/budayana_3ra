@@ -50,11 +50,15 @@ export default function SignIn() {
               // Directly redirect to home instead of forcing logout
               // await authClient.signOut() 
 
+            } catch (e) {
+              console.warn("Progress initialization failed:", e)
+            } finally {
+              // TEMPORARY FIX: Set a local storage flag to bypass ProtectedRoute on localhost Cross-Origin issues
+              localStorage.setItem("temp_dev_session", "true")
+
               setPopupType("success")
               setPopupMessage("Pendaftaran berhasil! Selamat datang.")
               setPopupOpen(true)
-            } catch (e) {
-              console.warn("Progress initialization failed:", e)
             }
           },
           onError: () => {
@@ -247,7 +251,7 @@ export default function SignIn() {
         onClose={() => {
           setPopupOpen(false)
           if (popupType === "success") {
-            navigate("/")
+            window.location.href = "/home"
           }
         }}
       />

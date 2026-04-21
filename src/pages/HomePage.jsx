@@ -275,7 +275,7 @@ const HomePage = () => {
       />
 
       {/* Map Container */}
-      <div className='relative mx-auto mt-24 mb-10 w-[95%] max-w-6xl aspect-[16/10] bg-transparent z-0'>
+      <div className='relative mx-auto mt-24 mb-10 w-[95%] max-w-6xl aspect-16/10 bg-transparent z-0'>
         <img
           src='/assets/budayana/islands/Homepage (3).png'
           alt='Map Background'

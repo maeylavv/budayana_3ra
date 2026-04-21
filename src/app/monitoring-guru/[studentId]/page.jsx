@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
 import MonitoringSidebar from "../../../components/MonitoringSidebar";
 import ScoreTable from "../../../components/ScoreTable";
-import { STUDENTS } from "../../../lib/dummyData";
+import { PARENT_STUDENT } from "../../../lib/dummyData";
 import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend
@@ -9,31 +9,34 @@ import {
 import "../../../pages/Profile.css";
 import "../../../pages/Results.css";
 
+// Data dinormalisasi ke persentase (0-100%) sesuai rumus Bloom Taxonomy: 
+// L1: 5 soal, L2: 4 soal, L3: 3 soal
 const radarData = [
-  { subject: 'Reading', A: 120, B: 110, fullMark: 150 },
-  { subject: 'Writing', A: 98, B: 130, fullMark: 150 },
-  { subject: 'Listening', A: 86, B: 130, fullMark: 150 },
-  { subject: 'Speaking', A: 99, B: 100, fullMark: 150 },
-  { subject: 'Grammar', A: 85, B: 90, fullMark: 150 },
-  { subject: 'Vocab', A: 65, B: 85, fullMark: 150 },
+  { subject: 'Remembering & Understanding (L1)', Student: 80, Target: 60, fullMark: 100 },
+  { subject: 'Applying & Analyzing (L2)', Student: 75, Target: 60, fullMark: 100 },
+  { subject: 'Evaluating & Creating (L3)', Student: 66, Target: 60, fullMark: 100 },
 ];
 
+// Perbandingan rata-rata topik
 const barData = [
-  { name: '2020 Q1', Kent: 4000, Lincoln: 2400, Mersey: 2400, York: 2400 },
-  { name: '2020 Q2', Kent: 3000, Lincoln: 1398, Mersey: 2210, York: 2210 },
-  { name: '2020 Q3', Kent: 2000, Lincoln: 9800, Mersey: 2290, York: 2290 },
-  { name: '2020 Q4', Kent: 2780, Lincoln: 3908, Mersey: 2000, York: 2000 },
+  { name: 'Makanan', 'Skor Siswa': 85, 'Rata-rata Kelas': 75 },
+  { name: 'Rumah Adat', 'Skor Siswa': 90, 'Rata-rata Kelas': 80 },
+  { name: 'Tarian', 'Skor Siswa': 70, 'Rata-rata Kelas': 65 },
 ];
 
 export default function StudentProfile() {
-  const { studentId } = useParams();
-  const student = STUDENTS.find(s => s.id === parseInt(studentId));
+  // Using PARENT_STUDENT (Muhammad Malik) for prototype
+  const student = PARENT_STUDENT;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!student) {
     return (
-      <div className="profile-layout">
+      <div className="flex bg-[#FEF6DF] min-h-screen w-full" style={{ fontFamily: "'Fredoka One', sans-serif" }}>
         <MonitoringSidebar role="guru" />
-        <main className="profile-main">
+        <main className="flex-1 p-10 box-border overflow-x-hidden">
           <p>Siswa tidak ditemukan.</p>
         </main>
       </div>
@@ -41,13 +44,13 @@ export default function StudentProfile() {
   }
 
   return (
-    <div className="profile-layout">
+    <div className="flex bg-[#FEF6DF] min-h-screen w-full" style={{ fontFamily: "'Fredoka One', sans-serif" }}>
       <MonitoringSidebar role="guru" />
       
-      <main className="profile-main">
+      <main className="flex-1 p-10 box-border overflow-x-hidden">
         <section className="profile-top">
-          <div className="profile-avatar-circle" style={{ fontSize: '3rem', width: '120px', height: '120px', borderColor: '#7B4F2E', backgroundColor: '#F2E5D3' }}>
-            {student.avatar}
+          <div className="profile-avatar-circle" style={{ fontSize: '3rem', width: '120px', height: '120px', borderColor: '#7B4F2E', backgroundColor: '#e2cfab', padding: 0, overflow: 'hidden' }}>
+            <img src="/assets/budayana/islands/Bocah1 1.png" alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="profile-top-text" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '8px' }}>
             <h1 className="profile-name" style={{ color: '#7B4F2E', fontSize: '2.5rem', fontWeight: '800' }}>{student.name}</h1>
@@ -69,7 +72,7 @@ export default function StudentProfile() {
               <div className="stat-label">Total XP</div>
             </div>
             <div className="stat-card pink" style={{ border: 'none', borderRadius: '24px' }}>
-              <div className="stat-value" style={{ fontSize: '2rem' }}>🏆 {student.title}</div>
+              <div className="stat-value" style={{ fontSize: '1.5rem' }}>🏆 {student.title}</div>
               <div className="stat-label">Gelar Saat Ini</div>
             </div>
             <div className="stat-card orange" style={{ border: 'none', borderRadius: '24px' }}>
@@ -84,13 +87,13 @@ export default function StudentProfile() {
             <h3 style={{ color: '#955C2E', fontWeight: 'bold', marginBottom: '20px' }}>Analisis Level Literasi Siswa</h3>
             <div style={{ height: '300px' }}>
               <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
+                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
                   <PolarGrid />
                   <PolarAngleAxis dataKey="subject" tick={{ fontSize: 10 }} />
-                  <PolarRadiusAxis />
-                  <Radar name="Student" dataKey="A" stroke="#2196F3" fill="#2196F3" fillOpacity={0.6} />
-                  <Radar name="Average" dataKey="B" stroke="#F44336" fill="#F44336" fillOpacity={0.6} />
-                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle" fill="black" fontWeight="bold">Radar Chart</text>
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                  <Radar name="Target/Rata-rata" dataKey="Target" stroke="#B0BEC5" fill="#CFD8DC" fillOpacity={0.6} />
+                  <Radar name="Siswa" dataKey="Student" stroke="#4CAF50" fill="#4CAF50" fillOpacity={0.6} />
+                  <Legend />
                 </RadarChart>
               </ResponsiveContainer>
             </div>
@@ -100,15 +103,13 @@ export default function StudentProfile() {
             <h3 style={{ color: '#955C2E', fontWeight: 'bold', marginBottom: '20px' }}>Minat Budaya Terbesar</h3>
             <div style={{ height: '300px' }}>
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={barData}>
-                  <XAxis dataKey="name" tick={{ fontSize: 10 }} />
-                  <YAxis tick={{ fontSize: 10 }} />
+                <BarChart data={barData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                  <XAxis dataKey="name" tick={{ fontSize: 12 }} />
+                  <YAxis tick={{ fontSize: 12 }} domain={[0, 100]} />
                   <Tooltip />
-                  <Legend iconType="circle" wrapperStyle={{ fontSize: '10px' }} />
-                  <Bar dataKey="Kent" fill="#ffc658" />
-                  <Bar dataKey="Lincoln" fill="#8884d8" />
-                  <Bar dataKey="Mersey" fill="#82ca9d" />
-                  <Bar dataKey="York" fill="#8dd1e1" />
+                  <Legend iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
+                  <Bar dataKey="Skor Siswa" fill="#f3a64c" />
+                  <Bar dataKey="Rata-rata Kelas" fill="#955C2E" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -117,7 +118,7 @@ export default function StudentProfile() {
 
         <section style={{ marginTop: '40px' }}>
           <h2 className="results-section-title" style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Riwayat Pengerjaan</h2>
-          <ScoreTable history={student.quizHistory} />
+          <ScoreTable history={student?.scoreHistory || []} />
         </section>
       </main>
     </div>

@@ -1,19 +1,14 @@
 import { useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
-import MonitoringSidebar from "../../../../components/MonitoringSidebar";
-import { STUDENTS } from "../../../../lib/dummyData";
-import "../../../../pages/Profile.css";
-import "../../../../pages/Results.css";
+import MonitoringSidebar from "../../../components/MonitoringSidebar";
+import { STUDENTS } from "../../../lib/dummyData";
+import "../../../pages/Profile.css";
+import "../../../pages/Results.css";
 
-export default function MonitoringGuruProfilAnakDetail() {
-  const { studentId } = useParams();
-  const navigate = useNavigate();
-  const student = STUDENTS.find((s) => s.id === studentId);
+export default function MonitoringOrtuProfilAnak() {
+  const student = STUDENTS.find((s) => s.id === "s1");
 
   const [isEditing, setIsEditing] = useState(false);
   
-  // Dummy form state
   const [formData, setFormData] = useState({
     nama: student ? student.name : "",
     kelas: student ? student.class : "",
@@ -25,7 +20,7 @@ export default function MonitoringGuruProfilAnakDetail() {
   if (!student) {
     return (
       <div className="flex bg-[#FEF6DF] min-h-screen w-full" style={{ fontFamily: "'Fredoka One', sans-serif" }}>
-        <MonitoringSidebar role="guru" />
+        <MonitoringSidebar role="ortu" />
         <main className="flex-1 p-10 box-border overflow-x-hidden">
           <p>Siswa tidak ditemukan.</p>
         </main>
@@ -39,12 +34,10 @@ export default function MonitoringGuruProfilAnakDetail() {
   };
 
   const handleSave = () => {
-    // In a real app, send data to backend
     setIsEditing(false);
   };
 
   const handleCancel = () => {
-    // Reset form data to original dummy
     setFormData({
       nama: student.name,
       kelas: student.class,
@@ -57,18 +50,11 @@ export default function MonitoringGuruProfilAnakDetail() {
 
   return (
     <div className="flex bg-[#FEF6DF] min-h-screen w-full" style={{ fontFamily: "'Fredoka One', sans-serif" }}>
-      <MonitoringSidebar role="guru" />
+      <MonitoringSidebar role="ortu" />
       
       <main className="flex-1 p-10 box-border overflow-x-hidden">
         <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-          <button 
-            onClick={() => navigate('/monitoring-guru/profil-anak')} 
-            style={{ position: 'absolute', left: 0, top: 0, backgroundColor: 'transparent', border: '2px solid #7B4F2E', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#7B4F2E' }}
-          >
-            <ChevronLeft size={24} />
-          </button>
-
-          <section className="profile-top" style={{ marginLeft: '60px', marginTop: '-10px' }}>
+          <section className="profile-top">
             <div className="profile-avatar-circle" style={{ fontSize: '3rem', width: '120px', height: '120px', borderColor: '#7B4F2E', backgroundColor: '#F2E5D3' }}>
               {student.avatar}
             </div>

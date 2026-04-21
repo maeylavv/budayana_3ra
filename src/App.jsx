@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 // Components
 import BackgroundMusic from "./components/BackgroundMusic.jsx"
+import ScrollToTop from "./components/ScrollToTop.jsx"
 import ProtectedRoute from "./components/auth/ProtectedRoute.jsx"
 import GuestRoute from "./components/auth/GuestRoute.jsx"
 
@@ -30,6 +31,7 @@ import StudentProfile from "./app/monitoring-guru/[studentId]/page.jsx"
 import MonitoringGuruProfil from "./app/monitoring-guru/profil/page.jsx"
 import MonitoringOrtuDashboard from "./app/monitoring-ortu/page.jsx"
 import MonitoringOrtuProfil from "./app/monitoring-ortu/profil/page.jsx"
+import MonitoringOrtuProfilAnak from "./app/monitoring-ortu/profil-anak/page.jsx"
 import MonitoringLogin from "./pages/monitoring/MonitoringLogin.jsx"
 
 const queryClient = new QueryClient()
@@ -38,6 +40,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+        <ScrollToTop />
         {/* Global background music */}
         <BackgroundMusic />
 
@@ -56,6 +59,7 @@ export default function App() {
           <Route path='/monitoring-guru/hasil/:studentId' element={<StudentProfile />} />
           
           <Route path='/monitoring-ortu/profil' element={<MonitoringOrtuProfil />} />
+          <Route path='/monitoring-ortu/profil-anak' element={<MonitoringOrtuProfilAnak />} />
           <Route path='/monitoring-ortu/hasil' element={<MonitoringOrtuDashboard />} />
           {/* ========================================
               PROTECTED ROUTES - Requires authentication

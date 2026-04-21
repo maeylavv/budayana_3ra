@@ -86,9 +86,39 @@ export default function Landing() {
             <div id="features" className="lnd-features">
                <h1 className="lnd-title-brown">Fitur Utama</h1>
                <p className="lnd-subtitle-brown">Jelajahi kekayaan budaya Indonesia dari 8 pulau<br/>dengan cara yang menyenangkan!</p>
-               <div className="lnd-features-content">
-                 <img src="/assets/budayana/islands/feature flow.png" alt="Feature Flow" className="lnd-feature-img" />
-                 <img src="/assets/budayana/islands/Badak.png" alt="Badak" className="lnd-badak-float" />
+               <div className="lnd-features-content" style={{ position: 'relative', width: '100%' }}>
+                 <div style={{ position: 'relative', border: '2px solid #7B4F2E', backgroundColor: '#FDEBCC', borderRadius: '24px', display: 'flex', width: '100%', maxWidth: '800px', margin: '40px auto', paddingBottom: '20px' }}>
+                    
+                    {/* Kolom Cerita Rakyat */}
+                    <div style={{ flex: 1, borderRight: '2px dashed #955C2E', display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px', position: 'relative' }}>
+                       <div style={{ position: 'absolute', top: '-24px', backgroundColor: '#BE6E3A', borderRadius: '12px', padding: '12px 40px', color: 'white', fontWeight: '800', fontSize: '1.4rem' }}>
+                         Cerita Rakyat
+                       </div>
+                       
+                       {/* Connector Line */}
+                       <div style={{ position: 'absolute', width: '2px', backgroundColor: '#7B4F2E', top: '100px', bottom: '80px', zIndex: 1 }}></div>
+
+                       <FlowCircle img="tahap 1.png" text="Pre-Test" />
+                       <FlowCircle img="tahap 2.png" text="Story" />
+                       <FlowCircle img="tahap 3.png" text="Post-Test" />
+                    </div>
+
+                    {/* Kolom Quiz Kultur */}
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '40px', position: 'relative' }}>
+                       <div style={{ position: 'absolute', top: '-24px', backgroundColor: '#BE6E3A', borderRadius: '12px', padding: '12px 40px', color: 'white', fontWeight: '800', fontSize: '1.4rem' }}>
+                         Quiz Kultur
+                       </div>
+                       
+                       {/* Connector Line */}
+                       <div style={{ position: 'absolute', width: '2px', backgroundColor: '#7B4F2E', top: '100px', bottom: '80px', zIndex: 1 }}></div>
+
+                       <FlowCircle img="tahap 1.png" text="Pilih Pulau" />
+                       <FlowCircle img="tahap 2.png" text="Pilih Topik" />
+                       <FlowCircle img="tahap 3.png" text="Pilih Level" />
+                    </div>
+                 </div>
+                 
+                 <img src="/assets/budayana/islands/Badak.png" alt="Badak" className="lnd-badak-float" style={{ right: '-50px', bottom: '-50px', zIndex: 4 }} />
                </div>
             </div>
 
@@ -120,6 +150,22 @@ function IslandCard({ img, name, navigate }) {
         <div className="lnd-island-card" onClick={() => navigate('/login')}>
             <img src={`/assets/budayana/islands/${img}`} alt={name} />
             <span>{name}</span>
+        </div>
+    );
+}
+
+function FlowCircle({ img, text }) {
+    return (
+        <div style={{ 
+            width: '180px', height: '120px', 
+            borderRadius: '50%', backgroundColor: 'white', 
+            border: '3px solid #7B4F2E', 
+            display: 'flex', flexDirection: 'column', 
+            justifyContent: 'center', alignItems: 'center', 
+            zIndex: 2, margin: '20px 0' 
+        }}>
+            <img src={`/assets/budayana/islands/${img}`} alt={text} style={{ width: '45px', height: '45px', objectFit: 'contain', marginBottom: '8px' }} />
+            <span style={{ color: '#955C2E', fontWeight: '800', fontSize: '1.1rem' }}>{text}</span>
         </div>
     );
 }
