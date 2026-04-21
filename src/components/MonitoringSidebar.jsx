@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
 
 export default function MonitoringSidebar({ role }) {
   const location = useLocation();
@@ -17,17 +16,29 @@ export default function MonitoringSidebar({ role }) {
   };
 
   return (
-    <div className="w-64 bg-[#FEF6DF] h-screen flex flex-col flex-shrink-0 border-r border-[#E8D9C0]">
+    <div className="w-64 bg-[#FEF6DF] h-screen flex flex-col shrink-0 border-r border-[#E8D9C0]">
       <div className="p-6 mt-4 text-center">
-        <h1 className="font-fredoka-one font-bold text-[2rem] leading-tight text-[#955C2E] mb-2">
-          Budayana<br/>Monitoring
-        </h1>
-        <p className="font-fredoka-one text-[#8A8275] text-lg font-semibold">
-          Dashboard {isGuru ? "Guru" : "Ortu/Wali"}
-        </p>
+        <img 
+          src="/assets/budayana/islands/Budayana Monitoring.png" 
+          alt="Budayana Monitoring" 
+          className="mx-auto mb-2 w-full max-w-[220px]" 
+        />
+        {isGuru ? (
+          <img 
+            src="/assets/budayana/islands/Dashboard Guru.png" 
+            alt="Dashboard Guru" 
+            className="mx-auto w-[80%] max-w-[180px]" 
+          />
+        ) : (
+          <img 
+            src="/assets/budayana/islands/Dashboard Wali.png" 
+            alt="Dashboard Wali" 
+            className="mx-auto w-[80%] max-w-[180px]" 
+          />
+        )}
       </div>
 
-      <nav className="flex-grow py-6 flex flex-col gap-1 mt-4">
+      <nav className="grow py-6 flex flex-col gap-1 mt-4">
         {isGuru ? (
           <>
             <Link to="/monitoring-guru/profil" className={getMenuClass("/monitoring-guru/profil", true)}>
@@ -38,7 +49,6 @@ export default function MonitoringSidebar({ role }) {
             </Link>
             <Link to="/monitoring-guru/hasil" className={getMenuClass("/monitoring-guru/hasil")}>
               <span>Hasil</span>
-              <ChevronDown size={18} />
             </Link>
           </>
         ) : (
@@ -51,7 +61,6 @@ export default function MonitoringSidebar({ role }) {
             </Link>
             <Link to="/monitoring-ortu/hasil" className={getMenuClass("/monitoring-ortu/hasil")}>
               <span>Hasil</span>
-              <ChevronDown size={18} />
             </Link>
           </>
         )}

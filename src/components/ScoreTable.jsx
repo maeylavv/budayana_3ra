@@ -15,17 +15,17 @@ export default function ScoreTable({ history }) {
   };
 
   return (
-    <div className="history-table-container">
-      <div className="history-header" style={{ gridTemplateColumns: '1.5fr 2fr 1fr 1fr 1fr 1fr 1.5fr' }}>
-        <div style={{ textAlign: 'center' }}>Pulau</div>
-        <div style={{ textAlign: 'center' }}>Topic</div>
-        <div style={{ textAlign: 'center' }}>Level</div>
-        <div style={{ textAlign: 'center' }}>Bloom</div>
-        <div style={{ textAlign: 'center' }}>Skor</div>
-        <div style={{ textAlign: 'center' }}>Waktu</div>
-        <div style={{ textAlign: 'center' }}>Tanggal</div>
+    <div className="history-table-container" style={{ display: 'flex', flexDirection: 'column', height: '400px' }}>
+      <div className="history-header" style={{ display: 'grid', gridTemplateColumns: '1.5fr 2fr 1fr 1fr 1fr 1fr 1.5fr', padding: '16px 24px', borderBottom: '1px solid #E8D9C0', backgroundColor: '#955c2e', color: 'white', alignItems: 'center' }}>
+        <div style={{ textAlign: 'center', fontWeight: 'bold' }}>Pulau</div>
+        <div style={{ textAlign: 'center', fontWeight: 'bold' }}>Topic</div>
+        <div style={{ textAlign: 'center', fontWeight: 'bold' }}>Level</div>
+        <div style={{ textAlign: 'center', fontWeight: 'bold' }}>Bloom</div>
+        <div style={{ textAlign: 'center', fontWeight: 'bold' }}>Skor</div>
+        <div style={{ textAlign: 'center', fontWeight: 'bold' }}>Waktu</div>
+        <div style={{ textAlign: 'center', fontWeight: 'bold' }}>Tanggal</div>
       </div>
-      <div className="history-body">
+      <div className="history-body" style={{ overflowY: 'auto', flex: '1 1 0%' }}>
         {history.length > 0 ? (
           history.map((item, index) => (
             <div key={index} className="history-row" style={{ display: 'grid', gridTemplateColumns: '1.5fr 2fr 1fr 1fr 1fr 1fr 1.5fr', padding: '16px 24px', borderBottom: '1px solid #E8D9C0', alignItems: 'center' }}>
@@ -52,7 +52,7 @@ export default function ScoreTable({ history }) {
             </div>
           ))
         ) : (
-          <div className="empty-message">
+          <div className="empty-message" style={{ textAlign: 'center', padding: '20px' }}>
             Belum ada riwayat pengerjaan.
           </div>
         )}

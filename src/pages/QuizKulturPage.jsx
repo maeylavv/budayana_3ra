@@ -7,7 +7,6 @@ import { islands as staticIslands } from "../data/islands"
 
 export default function QuizKulturPage() {
   const navigate = useNavigate()
-  const [activeIsland, setActiveIsland] = useState(null)
   const [showWelcome, setShowWelcome] = useState(() => !sessionStorage.getItem('quizWelcomeShown'))
   const [currentStep, setCurrentStep] = useState(1)
 
@@ -20,10 +19,6 @@ export default function QuizKulturPage() {
 
   const handleOpenIsland = (island) => {
     navigate(`/islands/${island.slug || island.id}/quiz`)
-  }
-
-  const handleCloseIsland = () => {
-    setActiveIsland(null)
   }
 
   const goToProfile = () => navigate("/profile")
@@ -63,7 +58,7 @@ export default function QuizKulturPage() {
               🗺️ Petualangan Kultur Quiz
             </h2>
             <p className='welcome-subtitle'>
-              Jelajahi 8 pulau, 24 topik budaya, dengan 72 tantangan kuis!
+              Jelajahi 8 pulau, 3 topik budaya, dan taklukkan tantangan quiz yang menantimu!
             </p>
 
             <div className='steps-container'>

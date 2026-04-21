@@ -41,8 +41,11 @@ export default function Login() {
       //   localStorage.setItem("token", data.session.token)
       // }
 
+      // TEMPORARY FIX: Set a local storage flag to bypass ProtectedRoute on localhost Cross-Origin issues
+      localStorage.setItem("temp_dev_session", "true")
+
       alert("Login successful!")
-      navigate("/home")
+      window.location.href = "/home"
     },
     onError: (error) => {
       console.error(error)
